@@ -1,0 +1,32 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div>
+        <h1>All products</h1>
+        <table class="mytable">
+            <tr>
+                <th>Name</th>
+                <th>Price type</th>
+                <th>Price</th>
+                <th>Discount</th>
+                <th>Final price</th>
+            </tr>
+            {% for item in modelProductList %}
+                <tr>
+                    <td>
+                        <a href="/product/{{ item.product.id }}">{{ item.product.name }}</a></td>
+                    <td>{{ item.package.name }}</td>
+                    <td>{{ item.price.price }}</td>
+                    {% if item.discount != null %}
+                        <td>{{ item.discount.discount }}%</td>
+                        <td>{{ (item.price.price/100)*item.discount.discount }}</td>
+                    {% else %}
+                        <td></td>
+                        <td>{{ item.price.price }}</td>
+                    {% endif %}
+                </tr>
+            {% endfor %}
+        </table>
+
+    </div>
+{% endblock %}

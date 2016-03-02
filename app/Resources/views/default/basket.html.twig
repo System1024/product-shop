@@ -1,0 +1,49 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div>
+        <h1>Basket</h1>
+        <table class="mytable">
+            <tr>
+                <th>Name</th>
+                <th>Price</th>
+                <th>Count</th>
+                <th>Sum</th>
+                <th>Discount</th>
+                <th>Final price</th>
+                <th></th>
+            </tr>
+            {% set finalySum = 0 %}
+            {% for item in modelBasketList %}
+                <tr>
+                    <td>
+                        <a href="/product/{{ item.ProductRelationPackage.product.id }}">{{ item.ProductRelationPackage.product.name }}</a>
+                    </td>
+                    <td>{{ item.ProductRelationPackage.price.price }}</td>
+                    <td>{{ item.count }}</td>
+                    {% set sum =  item.ProductRelationPackage.price.price * item.count %}
+                    {% set realPrice = sum %}
+                    <td>{{ sum }}</td>
+                    <td>
+                        {% if item.ProductRelationPackage.discount %}
+                            {% set realPrice = (sum/100)*item.ProductRelationPackage.discount.discount  %}
+                            {{ item.ProductRelationPackage.discount.discount }}%
+                        {% endif %}
+                    </td>
+                    <td>
+                        {{ realPrice }}
+                    </td>
+                    <td>
+                        <input onclick="removebasket({{ item.getId }})" type="button" value="Remove"/>
+                    </td>
+                </tr>
+                {% set finalySum = realPrice + finalySum %}
+            {% endfor %}
+            <tr>
+                <th colspan="5">Final sum:</th>
+                <th>{{ finalySum }}</th>
+                <th></th>
+            </tr>
+        </table>
+    </div>
+{% endblock %}

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <title>{% block title %}Welcome!{% endblock %}</title>
+        {% block stylesheets %}{% endblock %}
+        <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+        <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/newcraft.css') }}" />
+        <script src="{{ asset('assets/js/jquery-1.12.1.min.js') }}"></script>
+        <script src="{{ asset('assets/js/newcraft.js') }}"></script>
+    </head>
+    <body>
+        <ul class="topmenu">
+            <li>
+                <a href="/">Home</a>
+            </li>
+            <li>
+                <a href="/basket">Basket</a>
+            </li>
+        </ul>
+        {% block body %}{% endblock %}
+        {% block javascripts %}{% endblock %}
+    </body>
+</html>

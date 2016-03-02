@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>DATABASE</ID>
+  <OriginalElement>1b8d3c35-dec8-45b2-bee3-7cbc8e3ef4c6</OriginalElement>
+  <nodes>
+    <node x="252.0" y="314.0">1b8d3c35-dec8-45b2-bee3-7cbc8e3ef4c6.TABLE:newcraft2.price</node>
+    <node x="464.0" y="314.0">1b8d3c35-dec8-45b2-bee3-7cbc8e3ef4c6.TABLE:newcraft2.discount</node>
+    <node x="356.33333333333337" y="0.0">1b8d3c35-dec8-45b2-bee3-7cbc8e3ef4c6.TABLE:newcraft2.package</node>
+    <node x="144.33333333333334" y="0.0">1b8d3c35-dec8-45b2-bee3-7cbc8e3ef4c6.TABLE:newcraft2.product</node>
+    <node x="252.0" y="146.0">1b8d3c35-dec8-45b2-bee3-7cbc8e3ef4c6.TABLE:newcraft2.product_relation_package</node>
+    <node x="0.0" y="292.0">1b8d3c35-dec8-45b2-bee3-7cbc8e3ef4c6.TABLE:newcraft2.basket</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="1b8d3c35-dec8-45b2-bee3-7cbc8e3ef4c6.TABLE:newcraft2.price" target="1b8d3c35-dec8-45b2-bee3-7cbc8e3ef4c6.TABLE:newcraft2.product_relation_package">
+      <point x="0.0" y="-48.0" />
+      <point x="0.0" y="48.0" />
+    </edge>
+    <edge source="1b8d3c35-dec8-45b2-bee3-7cbc8e3ef4c6.TABLE:newcraft2.product_relation_package" target="1b8d3c35-dec8-45b2-bee3-7cbc8e3ef4c6.TABLE:newcraft2.package">
+      <point x="48.0" y="-48.0" />
+      <point x="396.0" y="121.0" />
+      <point x="452.33333333333337" y="121.0" />
+      <point x="0.0" y="48.0" />
+    </edge>
+    <edge source="1b8d3c35-dec8-45b2-bee3-7cbc8e3ef4c6.TABLE:newcraft2.product_relation_package" target="1b8d3c35-dec8-45b2-bee3-7cbc8e3ef4c6.TABLE:newcraft2.product">
+      <point x="-48.0" y="-48.0" />
+      <point x="300.0" y="121.0" />
+      <point x="240.33333333333334" y="121.0" />
+      <point x="0.0" y="48.0" />
+    </edge>
+    <edge source="1b8d3c35-dec8-45b2-bee3-7cbc8e3ef4c6.TABLE:newcraft2.discount" target="1b8d3c35-dec8-45b2-bee3-7cbc8e3ef4c6.TABLE:newcraft2.product_relation_package">
+      <point x="0.0" y="-48.0" />
+      <point x="560.0" y="267.0" />
+      <point x="412.0" y="267.0" />
+      <point x="64.0" y="48.0" />
+    </edge>
+    <edge source="1b8d3c35-dec8-45b2-bee3-7cbc8e3ef4c6.TABLE:newcraft2.basket" target="1b8d3c35-dec8-45b2-bee3-7cbc8e3ef4c6.TABLE:newcraft2.product_relation_package">
+      <point x="0.0" y="-70.0" />
+      <point x="116.0" y="267.0" />
+      <point x="284.0" y="267.0" />
+      <point x="-64.0" y="48.0" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic Group" zoom="1.0" x="328.0" y="264.0" />
+  <SelectedNodes />
+  <Categories>
+    <Category>Key columns</Category>
+    <Category>Columns</Category>
+  </Categories>
+</Diagram>
+

@@ -1,0 +1,37 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div>
+        <h1>Product "{{ modelProductList[0].product.name }}"</h1>
+        <h2>{{ modelProductList[0].product.descriprion }}</h2>
+        <table class="mytable">
+            <tr>
+            <th>Price type</th>
+            <th>Price description</th>
+            <th>Price</th>
+            <th>Discount</th>
+            <th>Final price</th>
+                <th></th>
+                <th></th>
+            </tr>
+            {% for item in modelProductList %}
+                <tr>
+
+                    <td>{{ item.package.name }}</td>
+                    <td>{{ item.package.description }}</td>
+                    <td>{{ item.price.price }}</td>
+                    {% if item.discount != null %}
+                        <td>{{ item.discount.discount }}%</td>
+                        <td>{{ (item.price.price/100)*item.discount.discount }}</td>
+                    {% else %}
+                        <td></td>
+                        <td>{{ item.price.price }}</td>
+                    {% endif %}
+                    <td><input id="cnt{{ item.id }}" value="1"></td>
+                    <td><input type="button" value="Buy" onclick="buy({{ item.id }})"></td>
+                </tr>
+            {% endfor %}
+        </table>
+
+    </div>
+{% endblock %}
