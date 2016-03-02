@@ -136,8 +136,7 @@ class BasketRepository extends EntityRepository implements BasketRepositoryInter
         $dql->select('count(b.id)')
             ->from('AppBundle:Basket', 'b')
             ->where('b.uid = :userid')
-            ->setParameter('userid', $userId)
-            ->getQuery();
+            ->setParameter('userid', $userId);
 
         $count = $dql->getQuery()->getSingleScalarResult();
 
