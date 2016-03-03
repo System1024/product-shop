@@ -37,6 +37,8 @@ class BasketRepository extends EntityRepository implements BasketRepositoryInter
             ->setParameter('uid', $userid);
 
         return $query->getQuery()->getResult();
+
+//        return $this->findByUid($userid);
     }
 
     /**
@@ -52,9 +54,7 @@ class BasketRepository extends EntityRepository implements BasketRepositoryInter
     {
 
         $entityManager = $this->getEntityManager();
-        $basketEntity = $entityManager
-            ->getRepository('AppBundle:Basket')
-            ->findOneBy(['uid' => $userId, 'bunch' => $bunchId]);
+        $basketEntity = $this->findOneBy(['uid' => $userId, 'bunch' => $bunchId]);
 
         // If the same product is in basket already
         // Set new amount
@@ -88,10 +88,11 @@ class BasketRepository extends EntityRepository implements BasketRepositoryInter
     public function removeFromBasket($userId, $id)
     {
         // Check if product exists in basket
-        $entityManager = $this->getEntityManager();
-        $entity = $entityManager->getRepository('AppBundle:Basket')->findOneBy(['id' => $id, 'uid' => $userId]);
+
+        $entity = $this->findOneBy(['id' => $id, 'uid' => $userId]);
 
         if ($entity) {
+            $entityManager = $this->getEntityManager();
             $entityManager->remove($entity);
             $entityManager->flush();
         }
