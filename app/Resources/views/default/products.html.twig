@@ -10,6 +10,8 @@
                 <th>Price</th>
                 <th>Discount</th>
                 <th>Final price</th>
+                <th></th>
+                <th></th>
             </tr>
             {% for item in modelProductList %}
                 <tr>
@@ -24,6 +26,8 @@
                         <td></td>
                         <td>{{ item.price.price }}</td>
                     {% endif %}
+                    <td><input id="cnt{{ item.id }}" value="1" class="counts"></td>
+                    <td><input type="button" value="Buy" onclick="buy({{ item.id }})"></td>
                 </tr>
             {% endfor %}
         </table>

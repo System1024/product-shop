@@ -29,3 +29,17 @@ function removebasket(id)
             })
 
 }
+
+
+function clearbasket()
+{
+
+    $.post("/basket/clear")
+        .done(function(){
+            window.location = '/basket'
+        })
+        .fail(function(){
+            alert('Something wrong');
+        })
+
+}

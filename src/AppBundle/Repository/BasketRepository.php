@@ -34,8 +34,7 @@ class BasketRepository extends EntityRepository implements BasketRepositoryInter
             ->join('bu.price', 'pr')
             ->leftJoin('bu.discount', 'd')
             ->where('b.uid = :uid')
-            ->setParameter('uid', $userid)
-            ->orderBy('b.id');
+            ->setParameter('uid', $userid);
 
         return $query->getQuery()->getResult();
     }

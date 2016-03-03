@@ -73,4 +73,22 @@ class BasketController extends CommonController
         return new Response("OK");
     }
 
+
+    /**
+     * Remove product from the basket
+     *
+     * @Route("/basket/clear")
+     */
+    public function clearBasketAction(Request $request)
+    {
+        $this->startSession($request);
+
+        $sessionId = $request->getSession()->getId();
+
+        $repository = $this->container->get('app.service.shop')->getRepository();
+        $repository->cleanBasket ($sessionId);
+
+        return new Response("OK");
+    }
+
 }
